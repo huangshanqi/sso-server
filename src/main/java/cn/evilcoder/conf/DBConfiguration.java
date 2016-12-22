@@ -33,8 +33,10 @@ public class DBConfiguration {
     @Value("${db.password:test}")
     String databasePassword;
 
-    @Value("{db.driver.class:com.mysql.jdbc.Driver}")
+    @Value("${db.driver.class:com.mysql.jdbc.Driver}")
     String databaseDriver;
+
+
 
     @Bean(name = "jdbcTemplate")
     public JdbcTemplate logicalJdbcTemplate() {
@@ -61,6 +63,7 @@ public class DBConfiguration {
     }
 
     public DataSource mysqlDataSource(String databaseUrl, String databaseUsername, String databasePassword) {
+
         PoolProperties p = new PoolProperties();
         p.setUrl(databaseUrl);
         p.setDriverClassName(databaseDriver);
