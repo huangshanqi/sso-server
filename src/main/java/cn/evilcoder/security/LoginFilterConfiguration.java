@@ -1,6 +1,7 @@
 package cn.evilcoder.security;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * Created by evilcoder.cn on 2016/12/22.
  */
 @Configuration
+@ConditionalOnExpression("true")
 public class LoginFilterConfiguration {
 
     @Value("${sso.server.url}")

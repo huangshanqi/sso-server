@@ -1,4 +1,4 @@
-package cn.evilcoder;
+package cn.evilcoder.controller;
 
 import cn.evilcoder.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
