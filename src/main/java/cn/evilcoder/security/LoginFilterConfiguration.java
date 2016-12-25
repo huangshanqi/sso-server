@@ -20,6 +20,7 @@ public class LoginFilterConfiguration {
         LoginFilter loginFilter = new LoginFilter(ssoServerUrl);
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
         registrationBean.setFilter(loginFilter);
+        registrationBean.addUrlPatterns();
         return registrationBean;
     }
 }

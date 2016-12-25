@@ -46,11 +46,12 @@ public class LoginFilter implements Filter{
         HttpSession session = request.getSession();
         boolean isLogin = session.getAttribute("isLogin") != null
                 && Boolean.valueOf(session.getAttribute("isLogin").toString());
-        if(isLogin) {
+        if(request.getRequestURI().contains("/sso/login") || isLogin) {
             filterChain.doFilter(request, response);
             return;
         }
-        response.sendRedirect(ssoServerUrl);
+        String redirect = request.getRequestURL().toString();
+        response.sendRedirect(ssoServerUrl + "?redirect=" + redirect);
     }
 
     @Override
